@@ -8,6 +8,11 @@ BeginPackage["Electromagnetism`"]
 GradientFieldPlot::usage = "Grafica el gradiente de un campo escalar"
 PotentialElectricFieldPlot::usage = "Grafica el campo electrico de un potencial"
 chargesPotential::usage = "Calcula el potencial electrico en el punto {x,y} de un conjunto de cargas con magnitud charges"
+rho::usage = "density constant"
+eps0::usage = "electrical permitivity"
+phi::usage = "electric potential"
+
+Needs["Integration`"]
 
 Begin["`Private`"]
 (* Implementation of the package *)
@@ -88,8 +93,12 @@ chargesPotential[{x_,y_}, charges_List?(Depth[#] == 2 &), pos_, opts: OptionsPat
 			]
 		]
 	]
+
+func[x_,y_,xp_,yp_]:= 1./Sqrt[(x-xp)^2 + (y-yp)^2]	
+
+phi[xp_, yp_] := trapezoidalIntegrate[func[#, # ,xp ,yp]&, -1., 1.]
 		
-		
+	(*rho/(4.*Pi*eps0) *)
 		
 Print["Electromagnetism definitions loaded."]
 

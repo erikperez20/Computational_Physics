@@ -5,6 +5,7 @@ BeginPackage["FindRoots`"]
 
 quadraticSolve::usage = "quadraticSolve[a, b, c] solves the quadratic equation for numerical reals a, b, c"
 cardano::usage = "cardano[c1,c2,c3,c4] solves the cubic equation for numerical reals c1, c2, c3 and c4 using the Cardano method"
+newtonFindRoot::usage = "newtonFindRoot[f,init] find root of f using Newton's method starting at the initial point init"
 
 Begin["`Private`"] (* Begin Private Context *) 
 
@@ -119,6 +120,49 @@ cardano[c1_, c2_, c3_, c4_] :=
 				]
 		]
 	] /; Element[c1,Reals] && Element[c2, Reals] && Element[c3, Reals] && Element[c4, Reals]
+
+(* ==========
+	Newton's Method
+*)
+
+newtonFindRoot::maxit = "Max number of steps `1` reached. Result could be inaccurate.";
+
+Options[newtonFindRoot] = {
+	PrecisionGoal -> Automatic,
+	MaxIterations -> 20,
+	StepMonitor -> None
+	}
+
+(*Implementar accuracy goal*)
+
+newtonFindRoot[f_, init_, opts:OptionsPattern[]] :=
+	With[{df = f'},
+		Module[{k = 1, xi = N@init, relError, maxiter, dx, monitor},
+		
+			relError = OptionValue[PrecisionGoal] /. Automatic -> 10.^-10;
+			maxiter = OptionValue[MaxIterations];
+			monitor = OptionValue[StepMonitor];
+			dx = Infinity;
+			
+			If[ monitor =!= None,
+				While[Abs[dx] > Abs[xi] relError && k < maxiter,
+					k++;
+					dx = f[xi]/df[xi];
+					xi = xi - dx;
+					monitor[xi];				
+				]
+				,
+				While[ Abs[dx] > Abs[xi] relError && k < maxiter,
+					k++;
+					dx = f[xi]/df[xi];
+					xi = xi - dx;					
+				];	
+			];
+			
+			If[k == maxiter, Message[newtonFindRoot::maxit, maxiter]];
+			xi
+		]
+	]
 
 
 Print["FindRoots definitions loaded."]

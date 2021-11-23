@@ -10,10 +10,10 @@ Begin["`Private`"] (* Begin Private Context *)
 
 lagrangeInterpolate[data_, xx_]:=
 	Module[{j, k, n = Length[data], x = data[[All , 1]], y = data[[All , 2]]},
-		
-		Sum[
-			y[[k]] * Product[(xx - x[[j]]) / (x[[k]] - x[[j]]), {j, 1, k-1}] * 
-				Product[(xx - x[[j]]) / (x[[k]] - x[[j]]), {j, k + 1, n}]
+		Total@Table[
+			y[[k]] * Times@@Table[(xx - x[[j]]) / (x[[k]] - x[[j]]), {j, 1, k-1}] *
+				Times@@Table[(xx - x[[j]]) / (x[[k]] - x[[j]]), {j, k + 1, n}]
+				
 			,
 			{k, 1, n}
 		]
