@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;CompPhys3/Physics/Physics.m&apos; to &apos;Electromagnetism.m&apos;" description="Rename resource &apos;Physics.m&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Physics/Physics.m" name="Electromagnetism.m" stamp="1635454716525" updateReferences="true"/>
-</session>

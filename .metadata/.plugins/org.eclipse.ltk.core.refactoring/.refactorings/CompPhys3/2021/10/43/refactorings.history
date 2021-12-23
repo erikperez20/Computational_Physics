@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;CompPhys3/CompPhys3.nb&apos; to &apos;Electrostatic.nb&apos;" description="Rename resource &apos;CompPhys3.nb&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CompPhys3.nb" name="Electrostatic.nb" stamp="1634837664759" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;CompPhys3/Electrostatic.nb&apos; to &apos;PlotRepaso.nb&apos;" description="Rename resource &apos;Electrostatic.nb&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Electrostatic.nb" name="PlotRepaso.nb" stamp="1634849001115" updateReferences="true"/>
-</session>

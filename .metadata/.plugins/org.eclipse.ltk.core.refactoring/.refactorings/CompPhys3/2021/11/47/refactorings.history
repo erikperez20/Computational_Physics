@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;CompPhys3/Physics/Integrate.m&apos; to &apos;Integration.m&apos;" description="Rename resource &apos;Integrate.m&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Physics/Integrate.m" name="Integration.m" stamp="1637291300645" updateReferences="true"/>
-</session>
