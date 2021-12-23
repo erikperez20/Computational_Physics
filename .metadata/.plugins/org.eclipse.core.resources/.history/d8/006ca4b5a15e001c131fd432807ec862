@@ -1,0 +1,12 @@
+(* Wolfram Language Package *)
+
+BeginPackage["ODE`"]
+(* Exported symbols added here with SymbolName::usage *)  
+
+eulerNDSolve::usage = "Solves 1 or more 1st order diff equation using euler method"
+
+Begin["`Private`"] (* Begin Private Context *) 
+
+End[] (* End Private Context *)
+
+EndPackage[]

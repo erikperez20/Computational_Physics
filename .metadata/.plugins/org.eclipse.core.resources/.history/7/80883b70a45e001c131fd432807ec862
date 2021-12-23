@@ -1,0 +1,68 @@
+(* Wolfram Language Package *)
+
+BeginPackage["ODE`"]
+(* Exported symbols added here with SymbolName::usage *)  
+
+eulerNDSolve::usage = "Solves 1 or more 1st order diff equation using euler method"
+
+Begin["`Private`"] (* Begin Private Context *) 
+
+(* Case of only one first-order differential equation*)
+
+eulerNDSolve[f_, yo_?NumericQ, {a_?NumericQ, b_?NumericQ, n_Integer}] :=
+	Module[{h, x, y, i},
+	
+		h = N@((b - a)/(n - 1));
+		x = y = Table[0, {n}];
+		y[[1]] = yo;
+		
+		Do[
+			x[[i + 1]] = x[[i]] + h;
+			y[[i + 1]] = y[[i]] + h f[x[[i]], y[[i]]]
+			,
+			{i, 1, n-1}
+		];
+		{x, y}
+	] /; !MatchQ[yo, _List]
+
+(* Overloading for the case of several first-order differential equations *)
+
+eulerNDSolve[f_, yo_?(VectorQ[#, NumericQ]&), {a_?NumericQ, b_?NumericQ, n_Integer}] :=
+	Module[{h, x, y, m, i},
+		
+		h = N@((b - a)/(n - 1));
+		m = Length[yo];
+		x = Table[0., {n}];
+		y = Table[0., {m}, {n}];
+		y[[All, 1]] = yo;
+
+		Do[
+			x[[i + 1]] = x[[i]] + h;
+			y[[All, i + 1]] = y[[All, i]] + h f[x[[i]], y[[All, i]]]
+			,
+			{i, 1, n - 1}
+		];
+		{x, y}
+	]
+	
+RK4NDSolve[f_, yo_?NumericQ, {a_?NumericQ, b_?NumericQ, n_Integer}] := 
+	Module[{h, x, y, i},
+	
+		h = N@((b - a)/(n - 1));
+		x = y = Table[0, {n}];
+		y[[1]] = yo;
+		
+		Do[
+			x[[i + 1]] = x[[i]] + h;
+			y[[i + 1]] = y[[i]] + h f[x[[i]], y[[i]]]
+			,
+			{i, 1, n-1}
+		];
+		{x, y}
+	] /; !MatchQ[yo, _List]
+
+
+
+End[] (* End Private Context *)
+
+EndPackage[]

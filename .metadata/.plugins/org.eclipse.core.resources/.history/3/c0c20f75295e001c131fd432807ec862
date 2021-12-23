@@ -1,0 +1,15 @@
+(* Wolfram Language Package *)
+
+BeginPackage["Fourier`"]
+(* Exported symbols added here with SymbolName::usage *)  
+
+absFSeries::usage = "Fourier series for the abs function"
+stepFSeries::usage = "Fourier series for the step function"
+triangleFSeries:usage = "Fourier series "
+
+
+Begin["`Private`"] (* Begin Private Context *) 
+
+End[] (* End Private Context *)
+
+EndPackage[]

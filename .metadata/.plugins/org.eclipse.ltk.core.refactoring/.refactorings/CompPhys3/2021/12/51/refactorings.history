@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;CompPhys3/Physics/EDO.m&apos; to &apos;ODE.m&apos;" description="Rename resource &apos;EDO.m&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Physics/EDO.m" name="ODE.m" stamp="1639690812657" updateReferences="true"/>&#x0A;<refactoring accessors="true" comment="Delete element from project &apos;CompPhys3&apos;&#x0D;&#x0A;- Original project: &apos;CompPhys3&apos;&#x0D;&#x0A;- Original element: &apos;ODE.m&apos;" description="Delete element" element1="Physics/ODE.m" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1639760414711" subPackages="false" version="1.0"/>
+</session>
